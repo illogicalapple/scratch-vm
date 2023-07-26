@@ -57,6 +57,15 @@ class TurboWarpBlocks {
                             defaultValue: '0'
                         }
                     }
+                },
+                {
+                    opcode: 'getClipboard',
+                    text: formatMessage({
+                        id: 'tw.blocks.clipboard',
+                        default: 'get clipboard',
+                        description: 'Block that returns the clipboard'
+                    }),
+                    blockType: BlockType.REPORTER
                 }
             ],
             menus: {
@@ -82,7 +91,7 @@ class TurboWarpBlocks {
                             text: formatMessage({
                                 id: 'tw.blocks.mouseButton.secondary',
                                 default: '(2) secondary',
-                                description: 'Dropdown item to select secondary (usually right) mouse button'
+                                description: 'Dropdown item to select secondary (usually (a right) mouse button'
                             }),
                             value: '2'
                         }
@@ -100,6 +109,10 @@ class TurboWarpBlocks {
     getButtonIsDown (args, util) {
         const button = Cast.toNumber(args.MOUSE_BUTTON);
         return util.ioQuery('mouse', 'getButtonIsDown', [button]);
+    }
+
+    getClipboard (args, util) {
+        return util.ioQuery('clipboard', 'getClipboard');
     }
 }
 
