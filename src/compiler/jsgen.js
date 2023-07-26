@@ -699,6 +699,9 @@ class JSGenerator {
         case 'tw.lastKeyPressed':
             return new TypedInput('runtime.ioDevices.keyboard.getLastKeyPressed()', TYPE_STRING);
 
+        case 'tw.clipboard':
+            return new TypedInput('runtime.ioDevices.keyboard.getClipboard()', TYPE_STRING);
+
         case 'var.get':
             return this.descendVariable(node.variable);
 
